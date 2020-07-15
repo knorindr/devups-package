@@ -29,9 +29,9 @@ jobs:
       - run:
           name: Install project dependencies
           command: php composer.phar install
-      - run:
-          name: Run CS tests
-          command: vendor/bin/phpcs . --extensions=php -p
       #- run:
-      #    name: Run Unit tests
-      #    command: vendor/bin/phpunit
+      #    name: Run CS tests
+      #    command: vendor/bin/phpcs . --extensions=php -p
+      - run:
+          name: Run Unit tests
+          command: vendor/bin/phpunit -v tests
