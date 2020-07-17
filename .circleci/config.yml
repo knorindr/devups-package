@@ -33,8 +33,5 @@ jobs:
       #    name: Run CS tests
       #    command: vendor/bin/phpcs . --extensions=php -p
       - run:
-          name: Run Sonaqube tests
-          command: vendor/bin/sonar-scanner -v .
-      - run:
           name: Run Unit tests
           command: vendor/bin/phpunit -v tests
