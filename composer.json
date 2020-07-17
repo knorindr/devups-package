@@ -18,8 +18,7 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.*",
-        "phpunit/phpunit": "^7",
-        "rogervila/php-sonarqube-scanner": "1.0.0"
+        "phpunit/phpunit": "^7"
     },
     "autoload": {
         "psr-0": {"": "src/"}
