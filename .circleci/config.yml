@@ -9,10 +9,10 @@ jobs:
     steps:
       - run:
           name: Install system packages
-          command: apt-get update && apt-get -y install git
+          command: apt-get update && apt-get -y install git && apt-get purge libzip4 && apt-get install php-zip
       - run:
           name: Install PHP extensions
-          command: docker-php-ext-install pdo && apt install php-zip
+          command: docker-php-ext-install pdo
       - checkout
       - run:
           name: Install Composer
