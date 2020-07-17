@@ -34,7 +34,7 @@ jobs:
       #    command: vendor/bin/phpcs . --extensions=php -p
       - run:
           name: Run Unit tests
-          command: vendor/bin/phpunit -v tests
+          command: vendor/bin/phpunit -v ./tests
 orbs:
   sonarqube: onehq/sonarqube@0.3.0
 workflows:
