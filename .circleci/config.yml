@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  sonarqube: onehq/sonarqube@0.3.0
 jobs:
   build:
     working_directory: /var/www/html
@@ -37,5 +35,11 @@ jobs:
       - run:
           name: Run Unit tests
           command: vendor/bin/phpunit -v ./tests
-      - sonarqube/scanner:
-          app: "https://github.com/knorindr/devups-package/tree/circleci-project-setup"
+      - sonarcloud/scan
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
+workflows:
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
