@@ -35,3 +35,11 @@ jobs:
       - run:
           name: Run Unit tests
           command: vendor/bin/phpunit -v tests
+orbs:
+  sonarqube: onehq/sonarqube@0.3.0
+version: 2.1
+workflows:
+  scanner:
+    jobs:
+      - sonarqube/scanner:
+          app: https://github.com/knorindr/devups-package/tree/circleci-project-setup
