@@ -21,7 +21,6 @@
     </target>
 
     <target name="qa" description="Lance les outils d'analyse">
-        <phingcall target="pdepend" />
         <phingcall target="phpmd" />
         <phingcall target="phpcpd" />
         <phingcall target="phploc" />
@@ -29,14 +28,6 @@
         <phingcall target="phpdoc" />
         <phingcall target="phpunit" />
         <phingcall target="phpcb" />
-    </target>
-    
-    <target name="pdepend">
-        <phpdepend file="${project.basedir}/${source}">
-            <logger type="jdepend-xml" outfile="${project.basedir}/build/logs/jdepend.xml" />
-            <logger type="jdepend-chart" outfile="${project.basedir}/build/pdepend/dependencies.svg" />
-            <logger type="overview-pyramid" outfile="${project.basedir}/build/pdepend/overview-pyramid.svg" />
-        </phpdepend>
     </target>
     
     <target name="phpmd">
