@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="TestJenkins" default="ci" basedir="../../..">
+    <php expression="include('vendor/autoload.php')"/>
     
     <target name="ci"
         description="Tâche principale d'intégration continue"
