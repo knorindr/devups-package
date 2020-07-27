@@ -1,5 +1,5 @@
-<php expression="include('vendor/autoload.php')"/>
 <?xml version="1.0" encoding="UTF-8"?>
+<php expression="include('vendor/autoload.php')"/>
 <project name="TestJenkins" default="ci" basedir="../../..">
     
     <target name="ci"
