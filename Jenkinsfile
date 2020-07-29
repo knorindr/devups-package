@@ -14,7 +14,7 @@ node('master') {
 
         stage('test') {
             // Run any testing suites
-            sh "./vendor/bin/phpcs"
+            sh "./vendor/bin/phpcs ."
         }
 
         stage('deploy') {
