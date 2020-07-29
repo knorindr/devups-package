@@ -18,7 +18,8 @@
         "pdepend/pdepend" : "@stable"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "3.*"
+        "squizlabs/php_codesniffer": "3.*",
+        "phpunit/phpunit": "~5.7"
     },
     "autoload": {
         "psr-0": {"": "src/"}
