@@ -16,6 +16,10 @@ node('master') {
             // Run any testing suites
             sh "./vendor/bin/phpunit ./tests"
         }
+        
+        stage('SonarQube Analysis') {
+            sh "/home/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.projectName=devupspackage -Dsonar.projectVersion=1.0 -Dsonar.projectKey=devupspackage:app -Dsonar.sources=. -Dsonar.projectBaseDir=/home/jenkins/workspace/devups-package"
+        }
 
         stage('deploy') {
             // If we had ansible installed on the server, setup to run an ansible playbook
