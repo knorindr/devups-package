@@ -16,9 +16,12 @@ node('master') {
             // Run any testing suites
             sh "./vendor/bin/phpunit ./tests"
         }
-        
-        stage('SonarQube Analysis') {
-            sh "/home/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.projectName=devupspackage -Dsonar.projectVersion=1.0 -Dsonar.projectKey=devupspackage:app -Dsonar.sources=. -Dsonar.projectBaseDir=/home/jenkins/workspace/devups-package"
+
+        stage('SonarQube analysis') {
+            def scannerHome = tool 'SonarScanner 4.0';
+            withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
         }
 
         stage('deploy') {
