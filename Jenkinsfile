@@ -20,7 +20,7 @@ node('master') {
         stage('SonarQube analysis') {
             def scannerHome = tool name: 'sonar_scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
             withSonarQubeEnv('sonarqube') { 
-                sh "${scannerHome}/bin/sonar-scanner"
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=devups-package -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=d3cf44aea4cc4559191e71e88b1ea38c5a596a74"
             }
         }
 
