@@ -19,12 +19,16 @@ pipeline {
         sh "./vendor/bin/phpunit ./tests"
       }
     }
-
+    
     stage('sonar analysis') {
+      environment {
+        SCANNER_HOME = tool 'sonar_scanner'
+        LOGIN = "d3cf44aea4cc4559191e71e88b1ea38c5a596a74"
+        PROJECT_NAME = "devups-package"
+      }
       steps {
-        def scannerHome = tool name: 'sonar_scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
-        withSonarQubeEnv('sonarqube') { 
-           sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=devups-package -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=d3cf44aea4cc4559191e71e88b1ea38c5a596a74"
+        withSonarQubeEnv('sonarqube') {
+          sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.login=$LOGIN -Dsonar.host.url=http://localhost:9000 -Dsonar.projectKey=$PROJECT_NAME -Dsonar.sources=.'''
         }
       }
     }
