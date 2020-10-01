@@ -23,7 +23,7 @@ pipeline {
     stage('sonar analysis') {
       environment {
         SCANNER_HOME = tool 'sonar_scanner'
-        LOGIN = "d3cf44aea4cc4559191e71e88b1ea38c5a596a74"
+        LOGIN = "ff77ac7993356d8814566ab3f1f7013e2a97a18e"
         PROJECT_NAME = "devups-package"
       }
       steps {
